@@ -30,7 +30,7 @@ def news():
 
             # Check if the user wants the news based on the category
             if "category" in r.recognize_google(audio):
-                url = f"https://gnews.io/api/v4/top-headlines?category={r.recognize_google(audio).split()[-1].lower()}&lang=en&country=in&max=10&apikey=0168dcfeeed7e5801dc8d761de2e6593"
+                url = f"https://gnews.io/api/v4/top-headlines?category={r.recognize_google(audio).split()[-1].lower()}&lang=en&country=in&max=10&apikey=[YOUR API KEY]"
                 with urllib.request.urlopen(url) as response:
                     data = json.loads(response.read().decode("utf-8"))
                     articles = data["articles"]
@@ -45,7 +45,7 @@ def news():
             
             # Check if the user wants the news based on a keyword
             elif "about" in r.recognize_google(audio):
-                url = f"https://gnews.io/api/v4/top-headlines?q={r.recognize_google(audio).split()[-1].lower()}&lang=en&country=in&max=10&apikey=0168dcfeeed7e5801dc8d761de2e6593"
+                url = f"https://gnews.io/api/v4/top-headlines?q={r.recognize_google(audio).split()[-1].lower()}&lang=en&country=in&max=10&apikey=[YOUR API KEY]"
                 with urllib.request.urlopen(url) as response:
                     data = json.loads(response.read().decode("utf-8"))
                     articles = data["articles"]
@@ -60,7 +60,7 @@ def news():
             
             # Check if the user wants to change the country
             elif "change country" in r.recognize_google(audio):
-                url = f"https://gnews.io/api/v4/top-headlines?category=general&lang=en&country={r.recognize_google(audio).split()[-1].lower()}&max=10&apikey=0168dcfeeed7e5801dc8d761de2e6593"
+                url = f"https://gnews.io/api/v4/top-headlines?category=general&lang=en&country={r.recognize_google(audio).split()[-1].lower()}&max=10&apikey=[YOUR API KEY]"
                 with urllib.request.urlopen(url) as response:
                     data = json.loads(response.read().decode("utf-8"))
                     articles = data["articles"]
